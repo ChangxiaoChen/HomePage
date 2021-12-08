@@ -22,6 +22,7 @@ module.exports = configure(function (ctx) {
     // --> boot files are part of "main.js"
     // https://quasar.dev/quasar-cli/boot-files
     boot: [
+      // 'i18n'
     ],
 
     // https://quasar.dev/quasar-cli/quasar-conf-js#Property%3A-css
@@ -92,11 +93,43 @@ module.exports = configure(function (ctx) {
       // (like functional components as one of the examples),
       // you can manually specify Quasar components/directives to be available everywhere:
       //
-      // components: [],
+      components: [
+        'QFab',
+        'QFabAction',
+        'QIcon',
+        'QLayout',
+        'QPageContainer',
+        'QPage',
+        'QHeader',
+        'QPageSticky',
+        'QPageScroller',
+        'QToolbar',
+        'QToolbarTitle',
+        'QForm',
+        'QInput',
+        'QDialog',
+        'QTooltip',
+        'QBar',
+        'QBtnToggle',
+        'QImg',
+        'QCard',
+        'QCardSection',
+        'QCardActions',
+        'QAvatar',
+        'QTabs',
+        'QTab',
+        'QRouteTab',
+        'QCheckbox',
+        'QInfiniteScroll',
+        'QVideo',
+        'QChatMessage'
+      ],
       // directives: [],
 
       // Quasar plugins
-      plugins: []
+      plugins: [
+        'Dialog'
+      ]
     },
 
     // animations: 'all', // --- includes all animations

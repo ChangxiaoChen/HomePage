@@ -1,1 +1,10 @@
 // app global css in SCSS form
+@font-face {
+  font-family: customfont;
+  src: url(./fonts/SourceHanSansSC-VF.woff2);
+}
+
+// 声明一个应用它的类
+.my-font {
+  font-family: 'SourceHanSansSC';
+}
