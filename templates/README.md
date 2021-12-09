@@ -1,6 +1,6 @@
-# homepage app (templates)
+# home templates (templates)
 
-a homepage app
+homepage templates
 
 ## Install the dependencies
 ```bash
@@ -12,10 +12,6 @@ yarn
 quasar dev
 ```
 
-### Lint the files
-```bash
-yarn run lint
-```
 
 ### Build the app for production
 ```bash

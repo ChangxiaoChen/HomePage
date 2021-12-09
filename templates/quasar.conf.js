@@ -6,8 +6,6 @@
 // Configuration for your app
 // https://quasar.dev/quasar-cli/quasar-conf-js
 
-/* eslint-env node */
-const ESLintPlugin = require('eslint-webpack-plugin')
 const { configure } = require('quasar/wrappers');
 
 module.exports = configure(function (ctx) {
@@ -22,7 +20,10 @@ module.exports = configure(function (ctx) {
     // --> boot files are part of "main.js"
     // https://quasar.dev/quasar-cli/boot-files
     boot: [
-      // 'i18n'
+      'vueMain',
+      'axios',
+      'notify_default',
+      'i18n'
     ],
 
     // https://quasar.dev/quasar-cli/quasar-conf-js#Property%3A-css
@@ -46,7 +47,7 @@ module.exports = configure(function (ctx) {
 
     // Full list of options: https://quasar.dev/quasar-cli/quasar-conf-js#Property%3A-build
     build: {
-      vueRouterMode: 'hash', // available values: 'hash', 'history'
+      vueRouterMode: 'history', // available values: 'hash', 'history'
 
       // transpile: false,
       // publicPath: '/',
@@ -57,9 +58,9 @@ module.exports = configure(function (ctx) {
       // transpileDependencies: [],
 
       // rtl: true, // https://quasar.dev/options/rtl-support
-      // preloadChunks: true,
+      preloadChunks: true,
       // showProgress: false,
-      // gzip: true,
+      gzip: true,
       // analyze: true,
 
       // Options below are automatically set depending on the env, set them if you want to override
@@ -67,9 +68,8 @@ module.exports = configure(function (ctx) {
 
       // https://quasar.dev/quasar-cli/handling-webpack
       // "chain" is a webpack-chain object https://github.com/neutrinojs/webpack-chain
-      chainWebpack (chain) {
-        chain.plugin('eslint-webpack-plugin')
-          .use(ESLintPlugin, [{ extensions: [ 'js', 'vue' ] }])
+      chainWebpack (/* chain */) {
+        //
       },
     },
 
@@ -93,43 +93,11 @@ module.exports = configure(function (ctx) {
       // (like functional components as one of the examples),
       // you can manually specify Quasar components/directives to be available everywhere:
       //
-      components: [
-        'QFab',
-        'QFabAction',
-        'QIcon',
-        'QLayout',
-        'QPageContainer',
-        'QPage',
-        'QHeader',
-        'QPageSticky',
-        'QPageScroller',
-        'QToolbar',
-        'QToolbarTitle',
-        'QForm',
-        'QInput',
-        'QDialog',
-        'QTooltip',
-        'QBar',
-        'QBtnToggle',
-        'QImg',
-        'QCard',
-        'QCardSection',
-        'QCardActions',
-        'QAvatar',
-        'QTabs',
-        'QTab',
-        'QRouteTab',
-        'QCheckbox',
-        'QInfiniteScroll',
-        'QVideo',
-        'QChatMessage'
-      ],
+      // components: [],
       // directives: [],
 
       // Quasar plugins
-      plugins: [
-        'Dialog'
-      ]
+      plugins: []
     },
 
     // animations: 'all', // --- includes all animations
@@ -149,9 +117,8 @@ module.exports = configure(function (ctx) {
       maxAge: 1000 * 60 * 60 * 24 * 30,
         // Tell browser when a file from the server should expire from cache (in ms)
 
-      chainWebpackWebserver (chain) {
-        chain.plugin('eslint-webpack-plugin')
-          .use(ESLintPlugin, [{ extensions: [ 'js' ] }])
+      chainWebpackWebserver (/* chain */) {
+        //
       },
 
       middlewares: [
@@ -167,15 +134,14 @@ module.exports = configure(function (ctx) {
 
       // for the custom service worker ONLY (/src-pwa/custom-service-worker.[js|ts])
       // if using workbox in InjectManifest mode
-      chainWebpackCustomSW (chain) {
-        chain.plugin('eslint-webpack-plugin')
-          .use(ESLintPlugin, [{ extensions: [ 'js' ] }])
+      chainWebpackCustomSW (/* chain */) {
+        //
       },
 
       manifest: {
-        name: `homepage app`,
-        short_name: `homepage app`,
-        description: `a homepage app`,
+        name: `home templates`,
+        short_name: `home templates`,
+        description: `homepage templates`,
         display: 'standalone',
         orientation: 'portrait',
         background_color: '#ffffff',
@@ -213,6 +179,7 @@ module.exports = configure(function (ctx) {
     // Full list of options: https://quasar.dev/quasar-cli/developing-cordova-apps/configuring-cordova
     cordova: {
       // noIosLegacyBuildFlag: true, // uncomment only if you know what you are doing
+      backButton: true
     },
 
     // Full list of options: https://quasar.dev/quasar-cli/developing-capacitor-apps/configuring-capacitor
@@ -222,7 +189,7 @@ module.exports = configure(function (ctx) {
 
     // Full list of options: https://quasar.dev/quasar-cli/developing-electron-apps/configuring-electron
     electron: {
-      bundler: 'packager', // 'packager' or 'builder'
+      bundler: 'builder', // 'packager' or 'builder'
 
       packager: {
         // https://github.com/electron-userland/electron-packager/blob/master/docs/api.md#options
@@ -244,15 +211,15 @@ module.exports = configure(function (ctx) {
       },
 
       // "chain" is a webpack-chain object https://github.com/neutrinojs/webpack-chain
-      chainWebpackMain (chain) {
-        chain.plugin('eslint-webpack-plugin')
-          .use(ESLintPlugin, [{ extensions: [ 'js' ] }])
+      chainWebpackMain (/* chain */) {
+        // do something with the Electron main process Webpack cfg
+        // extendWebpackMain also available besides this chainWebpackMain
       },
 
       // "chain" is a webpack-chain object https://github.com/neutrinojs/webpack-chain
-      chainWebpackPreload (chain) {
-        chain.plugin('eslint-webpack-plugin')
-          .use(ESLintPlugin, [{ extensions: [ 'js' ] }])
+      chainWebpackPreload (/* chain */) {
+        // do something with the Electron main process Webpack cfg
+        // extendWebpackPreload also available besides this chainWebpackPreload
       },
     }
   }

@@ -1,27 +1,23 @@
 {
   "name": "templates",
   "version": "0.0.1",
-  "description": "a homepage app",
-  "productName": "homepage app",
-  "author": "greaterwms",
+  "description": "homepage templates",
+  "productName": "home templates",
+  "author": "Elvis.Shi <Singosgu@gmail.com>",
   "private": true,
   "scripts": {
-    "lint": "eslint --ext .js,.vue ./",
     "test": "echo \"No test specified\" && exit 0"
   },
   "dependencies": {
     "@quasar/extras": "^1.0.0",
+    "axios": "^0.21.1",
     "core-js": "^3.6.5",
     "quasar": "^2.0.0",
-    "vue-i18n": "^8.26.7"
+    "vue-i18n": "^9.0.0",
+    "vue-print-nb": "^1.7.5"
   },
   "devDependencies": {
-    "@babel/eslint-parser": "^7.13.14",
-    "@quasar/app": "^3.0.0",
-    "eslint": "^7.14.0",
-    "eslint-config-prettier": "^8.1.0",
-    "eslint-plugin-vue": "^7.0.0",
-    "eslint-webpack-plugin": "^2.4.0"
+    "@quasar/app": "^3.0.0"
   },
   "browserslist": [
     "last 10 Chrome versions",
