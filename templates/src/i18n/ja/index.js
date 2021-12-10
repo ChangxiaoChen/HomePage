@@ -10,11 +10,11 @@ export default {
       zh_zhant: '繁體中文'
     },
     navbar:{
-      frontpage: 'Front Page',
-      community: 'Community',
-      market: 'Market',
-      dome: 'Dome',
-      contact: 'Contact Us'
+      frontpage: '表紙',
+      community: 'コミュニティ',
+      market: 'モール',
+      dome: 'ソフトウェアデモ',
+      contact: 'お問い合わせ'
     },
     400: 'Bad request (400)',
     401: 'Authorization not obtained (401)',
