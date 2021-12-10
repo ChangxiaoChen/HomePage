@@ -15,15 +15,28 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.conf import settings
-from django.urls import path, re_path
+from django.urls import path, re_path,include
 from django.views.generic.base import TemplateView
 from django.contrib.staticfiles.views import serve
 from django.views.static import serve as static_serve
 from . import views
-
 def return_static(request, path, insecure=True, **kwargs):
   return serve(request, path, insecure, **kwargs)
+from drf_yasg.views import get_schema_view
+from drf_yasg import openapi
 
+schema_view = get_schema_view(
+    openapi.Info(
+        title="HomePage--API Docs",
+        default_version='v1',
+        description="这是一个HomePage接口文档",
+        terms_of_service="https://www.56yhz.com/",
+        # contact=openapi.Contact(email="xxx@qq.com"),
+        license=openapi.License(name="Apache License 2.0"),
+    ),
+    public=True,
+    # permission_classes=(permissions.AllowAny,),   # 权限类
+)
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', TemplateView.as_view(template_name='dist/spa/index.html')),
@@ -34,4 +47,9 @@ urlpatterns = [
     re_path('^fonts/.*$', views.fonts, name='fonts'),
     re_path(r'^static/(?P<path>.*)$', return_static, name='static'),
     re_path(r'^media/(?P<path>.*)$', static_serve, {'document_root': settings.MEDIA_ROOT}),
+
+    re_path(r'^swagger(?P<format>\.json|\.yaml)$', schema_view.without_ui(cache_timeout=0), name='schema-json'),
+    path('swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
+    path('docs/', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
+    path('user/api/v1/',include('user.urls')),
 ]
