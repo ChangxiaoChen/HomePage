@@ -13,7 +13,7 @@ export default {
       frontpage: 'Front Page',
       community: 'Community',
       market: 'Market',
-      dome: 'Dome',
+      demo: 'Demo',
       contact: 'Contact Us'
     },
     400: 'Bad request (400)',

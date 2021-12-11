@@ -13,7 +13,7 @@ export default {
       frontpage: '首頁',
       community: '社區',
       market: '商城',
-      dome: '軟件演示',
+      demo: '軟件演示',
       contact: '聯繫我們'
     },
     400: '錯誤請求(400)',

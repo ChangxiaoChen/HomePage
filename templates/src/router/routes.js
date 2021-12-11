@@ -4,7 +4,23 @@ const routes = [
     path: '/',
     component: () => import('layouts/MainLayout.vue'),
     children: [
-      { path: '', component: () => import('pages/Index.vue') }
+      {
+        path: '',
+        name: 'index',
+        component: () => import('pages/Index.vue')
+      },
+      {
+        path: 'bbs',
+        name: 'bbs',
+        component: () => import('pages/bbs/home.vue'),
+        children: [
+          // {
+          //   path: 'outbounddashboard',
+          //   name: 'outbounddashboard',
+          //   component: () => import('pages/dashboard/outbound.vue')
+          // },
+        ]
+      },
     ]
   },
 

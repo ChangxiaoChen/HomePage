@@ -13,7 +13,7 @@ export default {
       frontpage: '表紙',
       community: 'コミュニティ',
       market: 'モール',
-      dome: 'ソフトウェアデモ',
+      demo: 'ソフトウェアデモ',
       contact: 'お問い合わせ'
     },
     400: 'Bad request (400)',

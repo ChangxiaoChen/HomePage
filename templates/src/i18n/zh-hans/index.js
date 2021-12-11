@@ -13,7 +13,7 @@ export default {
       frontpage: '首页',
       community: '社区',
       market: '商城',
-      dome: '软件演示',
+      demo: '软件演示',
       contact: '联系我们'
     },
     submit: '提交',
