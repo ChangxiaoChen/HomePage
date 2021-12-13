@@ -16,6 +16,9 @@ export default {
       demo: 'Demo',
       contact: 'Contact Us'
     },
+    submit: 'Submit',
+    title2: 'Give AI Intelligence To Warehouse Management',
+    code_warehouse: 'Code Warehouse',
     400: 'Bad request (400)',
     401: 'Authorization not obtained (401)',
     403: 'Access denied (403)',
@@ -30,5 +33,15 @@ export default {
     503: 'Service unavailable (503)',
     504: 'Network timeout (504)',
     505: 'HTTP version is not supported (505)'
-  }
+  },
+  contactdia: {
+    name: 'Your Name*',
+    email: 'Your Email',
+    company: 'Your Business Name',
+    message: 'Message'
+  },
+  avtar1: {
+    title: 'Support Multiple Mobile Devices',
+    massage: 'Support PC Mobile Pad PDA etc.'
+  },
 }

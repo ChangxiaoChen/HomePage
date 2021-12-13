@@ -16,6 +16,9 @@ export default {
       demo: '軟件演示',
       contact: '聯繫我們'
     },
+    submit: '提交',
+    title2: '為倉庫管理賦予AI智能',
+    code_warehouse: '代碼倉庫',
     400: '錯誤請求(400)',
     401: '未取得授權(401)',
     403: '拒絕訪問(403)',
@@ -30,5 +33,11 @@ export default {
     503: '服務不可用(503)',
     504: '網絡超時(504)',
     505: 'HTTP版本不支持(505)'
-  }
+  },
+  contactdia: {
+    name: '您的姓名*',
+    email: '您的郵箱',
+    company: '您的企業名稱',
+    message: '留言'
+  },
 }

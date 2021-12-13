@@ -1,4 +1,4 @@
-export default {
+ export default {
   failed: 'Action failed',
   success: 'Action was successful',
   index: {
@@ -17,6 +17,9 @@ export default {
       contact: '联系我们'
     },
     submit: '提交',
+    title2: '为仓库管理赋予AI智能',
+    code_warehouse: '代码仓库',
+    features: '我们的特点',
     400: '错误请求(400)',
     401: '未取得授权(401)',
     403: '拒绝访问(403)',
@@ -38,4 +41,8 @@ export default {
     company: '您的企业名称',
     message: '留言'
   },
+   avtar1: {
+    tip: '支持主流移动设备',
+     tip_note: '支持电脑、手机、平板、手持终端 PDA等'
+   },
 }

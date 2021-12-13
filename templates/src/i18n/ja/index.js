@@ -16,6 +16,9 @@ export default {
       demo: 'ソフトウェアデモ',
       contact: 'お問い合わせ'
     },
+    submit: '参加する',
+    title2: '倉庫管理にAIインテリジェンスを提供する',
+    code_warehouse: 'コードウェアハウス',
     400: 'Bad request (400)',
     401: 'Authorization not obtained (401)',
     403: 'Access denied (403)',
@@ -30,5 +33,11 @@ export default {
     503: 'Service unavailable (503)',
     504: 'Network timeout (504)',
     505: 'HTTP version is not supported (505)'
-  }
+  },
+  contactdia: {
+    name: 'あなたの名前*',
+    email: 'あなたのメールボックス',
+    company: 'あなたの会社名',
+    message: 'メッセージ'
+  },
 }
