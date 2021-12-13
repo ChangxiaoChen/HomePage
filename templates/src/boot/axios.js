@@ -5,7 +5,7 @@ import { LocalStorage, Notify } from 'quasar'
 import { i18n } from './i18n'
 
 const baseurl = 'http://localhost:8008/'
-const wsurl = 'http://localhost:8008/'
+const wsurl = 'ws://localhost:8008/'
 
 const axiosInstance = axios.create({
   baseURL: baseurl,

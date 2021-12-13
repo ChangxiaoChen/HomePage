@@ -1,47 +1,208 @@
 <template>
     <q-scroll-area :thumb-style="thumbStyle"
-                 :bar-style="barStyle"
-                 :visible="visible"
-                 :delay="1500"
-                 ref="scrollArea"
-                 @scroll="onScroll()"
-                 :style="{ height: scroll_height, width: width }"
+                   :bar-style="barStyle"
+                   :visible="visible"
+                   :delay="1500"
+                   ref="scrollAreaHome"
+                   @scroll="onScroll()"
+                   :style="{ height: scroll_height, width: scroll_width }"
   >
-  <q-layout view="hHh LpR fFf" class="bg-grey-3">
-    <q-header class="bg-grey-3 shadow-24" reveal height-hint="60">
-      <q-toolbar class="GPLAY__toolbar text-black">
-         <q-btn
-            icon="img:statics/logo.svg"
-            unelevated:true
-            flat
-            to="/"
-         />
-         <q-toolbar-title style="font-size: 20px;font-weight: bold;max-width: 8.85%" to="/">
-          {{ $t('index.title') }}
-        </q-toolbar-title>
-        <q-space />
-        <div class="GPLAY__toolbar-input-container row no-wrap">
-          <q-input dense outlined square placeholder="Search" class="bg-white col" />
-          <q-btn class="" color="primary" icon="search" unelevated />
-        </div>
-        <q-space />
-        <div class="q-pl-md q-gutter-sm row no-wrap items-center">
-          <q-btn round flat icon="img:icons/Github.png" />
-          <q-btn-group>
-            <q-btn color="primary" label="登入" />
-            <q-btn color="primary" label="注册" />
-          </q-btn-group>
-          <q-btn v-show="langlable !== '简体中文'" round flat label="EN" />
-          <q-btn v-show="langlable === '简体中文'" round flat label="CN" />
-        </div>
-      </q-toolbar>
-    </q-header>
-    <q-page-container>
-      <router-view />
-    </q-page-container>
-  </q-layout>
+    <q-layout view="hhh LpR fFf" class="bg-grey-1">
+      <q-header class="bg-grey-3 shadow-24" reveal>
+        <q-toolbar class="GPLAY__toolbar text-black">
+           <q-btn
+             icon="img:statics/logo.svg"
+             round
+             dense
+             unelevated
+             flat
+             to="/"
+           />
+           <q-toolbar-title>
+            <a class="text-black" href="/" style="text-decoration:none">
+              {{ $t('index.title') }}
+            </a>
+          </q-toolbar-title>
+          <q-space />
+          <div class="GPLAY__toolbar-input-container row no-wrap">
+            <q-input dense outlined square placeholder="Search" class="bg-white col" />
+            <q-btn class="" color="primary" icon="search" unelevated />
+          </div>
+          <q-space />
+          <div class="q-pl-md q-gutter-sm row no-wrap items-center">
+            <q-btn v-show="langlable !== '简体中文'" round flat icon="img:icons/Github.png" @click="goTo('https://github.com/Singosgu/GreaterWMS')" />
+            <q-btn v-show="langlable === '简体中文'" round flat icon="img:icons/gitee.ico" @click="goTo('https://gitee.com/Singosgu/GreaterWMS')" />
+            <q-btn-group>
+              <q-btn v-show="langlable !== '简体中文'" color="primary" label="Login" />
+              <q-btn v-show="langlable === '简体中文'" color="primary" label="登入" />
+              <div style="border:1px solid; float:left;height:5px; color: #1976D2"></div>
+              <div style="border:1px solid; float:left;height:5px; color: #1976D2; margin-top: 31px; margin-left: -2px"></div>
+              <q-btn v-show="langlable !== '简体中文'" color="primary" label="Register" />
+              <q-btn v-show="langlable === '简体中文'" color="primary" label="注册" />
+            </q-btn-group>
+            <q-btn v-show="langlable !== '简体中文'" round flat label="CN" @click="langChange('zh-hans')" />
+            <q-btn v-show="langlable === '简体中文'" round flat label="EN" @click="langChange('en-US')" />
+          </div>
+        </q-toolbar>
+      </q-header>
+      <q-page-container>
+        <q-page padding>
+          <div class="q-pa-md">
+              <div class="row">
+                <div class="col-2">
+                  这里不要写代码
+                </div>
+                <div class="col-2">
+                  Manu固定写在这里
+                </div>
+                <div class="col-6">
+                  新路由，写个子页面，作为这个页面的childrenp
+                  <p>新路由，写个子页面，作为这个页面的children</p>
+                  <p>新路由，写个子页面，作为这个页面的children</p>
+                  <p>新路由，写个子页面，作为这个页面的children</p>
+                  <p>新路由，写个子页面，作为这个页面的children</p>
+                  <p>新路由，写个子页面，作为这个页面的children</p>
+                  <p>新路由，写个子页面，作为这个页面的children</p>
+                  <p>新路由，写个子页面，作为这个页面的children</p>
+                  <p>新路由，写个子页面，作为这个页面的children</p>
+                  <p>新路由，写个子页面，作为这个页面的children</p>
+                  <p>新路由，写个子页面，作为这个页面的children</p>
+                  <p>新路由，写个子页面，作为这个页面的children</p>
+                  <p>新路由，写个子页面，作为这个页面的children</p>
+                  <p>新路由，写个子页面，作为这个页面的children</p>
+                  <p>新路由，写个子页面，作为这个页面的children</p>
+                  <p>新路由，写个子页面，作为这个页面的children</p>
+                  <p>新路由，写个子页面，作为这个页面的children</p>
+                  <p>新路由，写个子页面，作为这个页面的children</p>
+                  <p>新路由，写个子页面，作为这个页面的children</p>
+                  <p>新路由，写个子页面，作为这个页面的children</p>
+                  <p>新路由，写个子页面，作为这个页面的children</p>
+                  <p>新路由，写个子页面，作为这个页面的children</p>
+                  <p>新路由，写个子页面，作为这个页面的children</p>
+                  <p>新路由，写个子页面，作为这个页面的children</p>
+                  <p>新路由，写个子页面，作为这个页面的children</p>
+                  <p>新路由，写个子页面，作为这个页面的children</p>
+                  <p>新路由，写个子页面，作为这个页面的children</p>
+                  <p>新路由，写个子页面，作为这个页面的children</p>
+                  <p>新路由，写个子页面，作为这个页面的children</p>
+                  <p>新路由，写个子页面，作为这个页面的children</p>
+                  <p>新路由，写个子页面，作为这个页面的children</p>
+                  <p>新路由，写个子页面，作为这个页面的children</p>
+                  <p>新路由，写个子页面，作为这个页面的children</p>
+                  <p>新路由，写个子页面，作为这个页面的children</p>
+                  <p>新路由，写个子页面，作为这个页面的children</p>
+                  <p>新路由，写个子页面，作为这个页面的children</p>
+                  <p>新路由，写个子页面，作为这个页面的children</p>
+                  <p>新路由，写个子页面，作为这个页面的children</p>
+                  <p>新路由，写个子页面，作为这个页面的children</p>
+                  <p>新路由，写个子页面，作为这个页面的children</p>
+                  <p>新路由，写个子页面，作为这个页面的children</p>
+                  <p>新路由，写个子页面，作为这个页面的children</p>
+                  <p>新路由，写个子页面，作为这个页面的children</p>
+                  <p>新路由，写个子页面，作为这个页面的children</p>
+                  <p>新路由，写个子页面，作为这个页面的children</p>
+                  <p>新路由，写个子页面，作为这个页面的children</p>
+                  <p>新路由，写个子页面，作为这个页面的children</p>
+                  <p>新路由，写个子页面，作为这个页面的children</p>
+                  <p>新路由，写个子页面，作为这个页面的children</p>
+                  <p>新路由，写个子页面，作为这个页面的children</p>
+                  <p>新路由，写个子页面，作为这个页面的children</p>
+                  <p>新路由，写个子页面，作为这个页面的children</p>
+                  <p>新路由，写个子页面，作为这个页面的children</p>
+                  <p>新路由，写个子页面，作为这个页面的children</p>
+                  <p>新路由，写个子页面，作为这个页面的children</p>
+                  <p>新路由，写个子页面，作为这个页面的children</p>
+                  <p>新路由，写个子页面，作为这个页面的children</p>
+                  <p>新路由，写个子页面，作为这个页面的children</p>
+                  <p>新路由，写个子页面，作为这个页面的children</p>
+                  <p>新路由，写个子页面，作为这个页面的children</p>
+                  <p>新路由，写个子页面，作为这个页面的children</p>
+                  <p>新路由，写个子页面，作为这个页面的children</p>
+                  <p>新路由，写个子页面，作为这个页面的children</p>
+                  <p>新路由，写个子页面，作为这个页面的children</p>
+                  <p>新路由，写个子页面，作为这个页面的children</p>
+                  <p>新路由，写个子页面，作为这个页面的children</p>
+                  <p>新路由，写个子页面，作为这个页面的children</p>
+                  <p>新路由，写个子页面，作为这个页面的children</p>
+                  <p>新路由，写个子页面，作为这个页面的children</p>
+                  <p>新路由，写个子页面，作为这个页面的children</p>
+                  <p>新路由，写个子页面，作为这个页面的children</p>
+                  <p>新路由，写个子页面，作为这个页面的children</p>
+                  <p>新路由，写个子页面，作为这个页面的children</p>
+                  <p>新路由，写个子页面，作为这个页面的children</p>
+                  <p>新路由，写个子页面，作为这个页面的children</p>
+                  <p>新路由，写个子页面，作为这个页面的children</p>
+                  <p>新路由，写个子页面，作为这个页面的children</p>
+                  <p>新路由，写个子页面，作为这个页面的children</p>
+                  <p>新路由，写个子页面，作为这个页面的children</p>
+                  <p>新路由，写个子页面，作为这个页面的children</p>
+                  <p>新路由，写个子页面，作为这个页面的children</p>
+                  <p>新路由，写个子页面，作为这个页面的children</p>
+                  <p>新路由，写个子页面，作为这个页面的children</p>
+                  <p>新路由，写个子页面，作为这个页面的children</p>
+                  <p>新路由，写个子页面，作为这个页面的children</p>
+                  <p>新路由，写个子页面，作为这个页面的children</p>
+                  <p>新路由，写个子页面，作为这个页面的children</p>
+                  <p>新路由，写个子页面，作为这个页面的children</p>
+                  <p>新路由，写个子页面，作为这个页面的children</p>
+                  <p>新路由，写个子页面，作为这个页面的children</p>
+                  <p>新路由，写个子页面，作为这个页面的children</p>
+                  <p>新路由，写个子页面，作为这个页面的children</p>
+                  <p>新路由，写个子页面，作为这个页面的children</p>
+                  <p>新路由，写个子页面，作为这个页面的children</p>
+                  <p>新路由，写个子页面，作为这个页面的children</p>
+                  <p>新路由，写个子页面，作为这个页面的children</p>
+                  <p>新路由，写个子页面，作为这个页面的children</p>
+                  <p>新路由，写个子页面，作为这个页面的children</p>
+                  <p>新路由，写个子页面，作为这个页面的children</p>
+                  <p>新路由，写个子页面，作为这个页面的children</p>
+                  <p>新路由，写个子页面，作为这个页面的children</p>
+                  <p>新路由，写个子页面，作为这个页面的children</p>
+                  <p>新路由，写个子页面，作为这个页面的children</p>
+                  <p>新路由，写个子页面，作为这个页面的children</p>
+                  <p>新路由，写个子页面，作为这个页面的children</p>
+                  <p>新路由，写个子页面，作为这个页面的children</p>
+                  <p>新路由，写个子页面，作为这个页面的children</p>
+                  <p>新路由，写个子页面，作为这个页面的children</p>
+                  <p>新路由，写个子页面，作为这个页面的children</p>
+                  <p>新路由，写个子页面，作为这个页面的children</p>
+                  <p>新路由，写个子页面，作为这个页面的children</p>
+                  <p>新路由，写个子页面，作为这个页面的children</p>
+                  <p>新路由，写个子页面，作为这个页面的children</p>
+                  <p>新路由，写个子页面，作为这个页面的children</p>
+                  <p>新路由，写个子页面，作为这个页面的children</p>
+                  <p>新路由，写个子页面，作为这个页面的children</p>
+                  <p>新路由，写个子页面，作为这个页面的children</p>
+                  <p>新路由，写个子页面，作为这个页面的children</p>
+                  <p>新路由，写个子页面，作为这个页面的children</p>
+                  <p>新路由，写个子页面，作为这个页面的children</p>
+                  <p>新路由，写个子页面，作为这个页面的children</p>
+                  <p>新路由，写个子页面，作为这个页面的children</p>
+                  <p>新路由，写个子页面，作为这个页面的children</p>
+                  <p>新路由，写个子页面，作为这个页面的children</p>
+                  <p>新路由，写个子页面，作为这个页面的children</p>
+                  <p>新路由，写个子页面，作为这个页面的children</p>
+                  <p>新路由，写个子页面，作为这个页面的children</p>
+                  <router-view />
+                </div>
+                <div class="col-2">
+                  这里不要写代码
+                </div>
+              </div>
+            </div>
+           <q-page-sticky v-show='pagelocation > 0.5' position="bottom-right" :offset="[18, 18]" @click="ScrollToTop()">
+            <q-fab
+              icon="arrow_upward"
+              color="primary"
+            >
+            </q-fab>
+          </q-page-sticky>
+        </q-page>
+      </q-page-container>
+    </q-layout>
     </q-scroll-area>
 </template>
+
 <style lang="sass">
 .GPLAY
   &__toolbar-input-container
@@ -53,15 +214,15 @@
     width: 100%
 </style>
 <script>
-import { defineComponent } from 'vue'
-import { LocalStorage } from 'quasar'
-import { openURL } from 'quasar'
-import { useMeta  } from 'quasar'
+import { defineComponent, ref } from 'vue'
+import { openURL, Screen, createMetaMixin, LocalStorage } from 'quasar'
 
 export default defineComponent({
-  name: 'Index',
+  name: 'Home',
   data () {
     return {
+      title: '',
+      meta: {},
       lang: this.$i18n.locale,
       langlable: '',
       contact: false,
@@ -73,27 +234,36 @@ export default defineComponent({
         contact: this.$t('index.navbar.contact')
       },
       visible: false,
-      scroll_width: this.$q.screen.height + '' + 'px',
-      scroll_height: this.$q.screen.height + '' + 'px',
+      scroll_width: Screen.width + '' + 'px',
+      scroll_height: Screen.height + '' + 'px',
       thumbStyle: {
         right: '4px',
         borderRadius: '5px',
-        backgroundColor: '#E0E0E0',
+        backgroundColor: '#027be3',
         width: '8px',
         opacity: 0.75
       },
       barStyle: {
         right: '2px',
         borderRadius: '9px',
-        backgroundColor: '#EEEEEE',
+        backgroundColor: '#027be3',
         width: '12px',
         opacity: 0.2
       },
+      pagelocation: 0
     }
   },
+  mixins: [
+    createMetaMixin(function () {
+      return {
+        title: this.title,
+        meta: this.meta
+      }
+    })
+  ],
   methods: {
-    frontpage () {
-      openURL('https://production.56yhz.com/#/')
+    goTo (e) {
+     openURL(e)
     },
     langChange (e) {
       var _this = this
@@ -104,23 +274,24 @@ export default defineComponent({
     },
     onScroll () {
       var _this = this
-      console.log(_this.$refs.scrollArea.getScrollPercentage())
-    },
-    ios () {
-     openURL('http://www.quasarchs.com/vue-components/button/')
-    },
-    android () {
-      openURL('http://www.quasarchs.com/vue-components/button/')
-    },
-    ipad () {
-      openURL('http://www.quasarchs.com/vue-components/button/')
-    },
-    windows () {
-      openURL('http://www.quasarchs.com/vue-components/button/')
+      _this.pagelocation = _this.$refs.scrollAreaHome.getScrollPercentage().top
+      console.log(_this.$refs.scrollAreaHome.getScrollPercentage())
     }
   },
   created() {
     var _this = this
+    _this.title = 'GreaterWMS - 开源社区'
+    _this.meta = {
+      description: {name: 'description', content: 'GreaterWMS - Open Source Warehouse Management System'},
+      keywords: {name: 'keywords', content: 'Quasar website'},
+      equiv: {'http-equiv': 'Content-Type', content: 'text/html; charset=UTF-8'},
+      ogTitle: {
+        property: 'og:title',
+        template(ogTitle) {
+          return `${ogTitle} - GreaterWMS`
+        }
+      }
+    }
     if (_this.lang === 'zh-hans') {
       _this.langlable = '简体中文'
     } else if (_this.lang === 'zh-hant') {
@@ -133,31 +304,22 @@ export default defineComponent({
       _this.langlable = 'English'
     }
   },
-  setup () {
-    // needs to be called in setup()
-    useMeta({
-      title: 'GreaterWMS',
-      titleTemplate: title => `${title} - Open Source Warehouse Management System`,
-      meta: {
-        description: { name: 'description', content: 'GreaterWMS - Open Source Warehouse Management System' },
-        keywords: { name: 'keywords', content: 'Quasar website' },
-        equiv: { 'http-equiv': 'Content-Type', content: 'text/html; charset=UTF-8' },
-        // note: for Open Graph type metadata you will need to use SSR, to ensure page is rendered by the server
-        ogTitle:  {
-          property: 'og:title',
-          // optional; similar to titleTemplate, but allows templating with other meta properties
-          template (ogTitle) {
-            return `${ogTitle} - GreaterWMS`
-          }
-        }
-      },
-    })
-  },
   watch: {
     lang (lang) {
       var _this = this
       LocalStorage.set('lang', lang)
       _this.$i18n.locale = lang
+    }
+  },
+  setup () {
+    const position = ref(0)
+    const scrollAreaHome = ref(null)
+    return {
+      position,
+      scrollAreaHome,
+      ScrollToTop () {
+        scrollAreaHome.value.setScrollPosition('vertical', position.value, 100)
+      }
     }
   }
 })

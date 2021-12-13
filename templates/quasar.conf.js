@@ -141,9 +141,9 @@ module.exports = configure(function (ctx) {
       },
 
       manifest: {
-        name: `home templates`,
-        short_name: `home templates`,
-        description: `homepage templates`,
+        name: `GreaterWMS`,
+        short_name: `GreaterWMS`,
+        description: `GreaterWMS`,
         display: 'standalone',
         orientation: 'portrait',
         background_color: '#ffffff',
