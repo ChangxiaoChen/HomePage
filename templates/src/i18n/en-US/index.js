@@ -40,8 +40,14 @@ export default {
     company: 'Your Business Name',
     message: 'Message'
   },
-  avtar1: {
-    title: 'Support Multiple Mobile Devices',
-    massage: 'Support PC Mobile Pad PDA etc.'
+  avtar: {
+    tip1: 'Support Multiple Mobile Devices',
+    tip_note1: 'Support PC Mobile Pad PDA Etc.',
+    tip2: 'Low Development And Maintenance Costs ',
+    tip_note2: 'Support Secondary Development, And Iterative Update In Real Time',
+    tip3: 'Hierarchical Management Of Employee Permissions',
+    tip_note3: 'Hierarchical Management Of Employees In Different Positions',
+    tip4: 'Refined Warehouse Management',
+    tip_note4: 'Support Refined Management Of Warehouses With Multiple Goods And Multiple Locations',
   },
 }

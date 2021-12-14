@@ -10,7 +10,7 @@
           <q-header>
             <div class="row" style="height:110px">
               <div class="col-2"></div>
-              <div class="col-5" style="align-self: center">
+              <div class="col-2" style="align-self: center">
                 <q-btn
                   icon="img:statics/logo.svg"
                   round
@@ -23,7 +23,7 @@
                   {{ $t('index.title') }}
                 </a>
                 </div>
-              <div class="col-3" style="align-self: center">
+              <div class="col-6" style="align-self: center">
                 <q-btn-group flat >
                   <q-btn flat :label=navbar.front_page to="/"></q-btn>
                   <q-btn flat :label=navbar.community to="/bbs"></q-btn>
@@ -100,12 +100,12 @@
                       </g>
                     </g>
                   </svg>
-                  <div style="position:absolute;left:35%; top:10%;font-size: 60px;font-weight: normal;color: white;letter-spacing: 10px;text-align: center">
+                  <div style="position:absolute;left:31%; top:10%;font-size: 60px;font-weight: normal;color: white;letter-spacing: 10px;text-align: center">
                     {{ $t('index.title') }}
                     <br>
                     {{ $t('index.title2') }}
                     <br>
-                    <q-btn style="width: 260px;height: 66px;background-color:#FFCE05"><span style="color: black;font-size: 30px;font-weight: normal">{{ code_warehous }}</span></q-btn>
+                    <q-btn size="xl" style="background-color:#FFCE05;width: 260px;height: 66px;margin-top: 10%" align="left" icon ="img:statics/gitee.svg"><span style="color: black;font-size: 30px;font-weight: normal;margin-left: 15%">{{ code_warehous }}</span></q-btn>
                   </div>
                   <q-img src="/statics/computer.svg" style="position: absolute;left: 19%;top:50%;width: 61%"/>
                   <q-media-player
@@ -133,71 +133,159 @@
                 </div>
               </div>
 <!--               第二个模块-->
-              <div class="col" style="text-align: center">
+              <div class="col" style="text-align: center;margin-bottom: -20%">
                 <span style="font-size: 32px;font-weight: normal;text-align: center">{{ $t('index.features') }}</span>
-                <q-separator inset style="color: #FFCE05;width: 40px;background-color:#FFCE05;margin-left: 49%;margin-top: 1%" />
+                <q-separator inset style="color: #FFCE05;width: 40px;background-color:#FFCE05;margin-left: 49.1%;margin-top: 1%" />
                 <div class="row" style="margin-top: 70px">
                   <div class="col-2"></div>
 <!--                  第一个卡片-->
                   <div class="col-2" style="height: 270px">
-                    <div class="q-pa-md">
+                    <div class="q-pa-md aaa">
                       <q-card flat>
                         <q-item>
                           <q-item-section avatar>
-                            <q-avatar square icon="img:statics/equipment.svg" size="120px"></q-avatar>
+                            <q-avatar square icon="img:statics/equipment1.svg" size="120px"></q-avatar>
                           </q-item-section>
                         </q-item>
                         <q-card-section style="text-align: left!important;margin-left: 25px;padding-right: -25px">
-                          <div style="font-size: 22px">{{ $t('avtar1.tip') }}</div>
+                          <div style="font-size: 22px">{{ $t('avtar.tip1') }}</div>
                           <br>
-                          <div style="font-size: 14px">{{ $t('avtar1.tip_note') }}</div>
+                          <div style="font-size: 14px">{{ $t('avtar.tip_note1') }}</div>
                         </q-card-section>
                       </q-card>
                     </div>
                   </div>
-                  <div class="col-2"><div class="q-pa-md">
+                  <!--                  第二个卡片-->
+                  <div class="col-2">
+                    <div class="q-pa-md aaa">
                     <q-card flat>
                       <q-item>
                         <q-item-section avatar>
-                          <q-avatar square icon="img:statics/equipment.svg" size="120px"></q-avatar>
+                          <q-avatar square icon="img:statics/equipment2.svg" size="120px"></q-avatar>
                         </q-item-section>
                       </q-item>
                       <q-card-section style="text-align: left!important;margin-left: 25px;padding-right: -25px">
-                        <div style="font-size: 22px">{{ $t('avtar1.tip') }}</div>
+                        <div style="font-size: 22px">{{ $t('avtar.tip2') }}</div>
                         <br>
-                        <div style="font-size: 14px">{{ $t('avtar1.tip_note') }}</div>
+                        <div style="font-size: 14px">{{ $t('avtar.tip_note2') }}</div>
                       </q-card-section>
                     </q-card>
                   </div></div>
-                  <div class="col-2"><div class="q-pa-md">
+                  <!--                  第三个卡片-->
+                  <div class="col-2">
+                    <div class="q-pa-md aaa">
                     <q-card flat>
                       <q-item>
                         <q-item-section avatar>
-                          <q-avatar square icon="img:statics/equipment.svg" size="120px"></q-avatar>
+                          <q-avatar square icon="img:statics/equipment3.svg" size="120px"></q-avatar>
                         </q-item-section>
                       </q-item>
                       <q-card-section style="text-align: left!important;margin-left: 25px;padding-right: -25px">
-                        <div style="font-size: 22px">{{ $t('avtar1.tip') }}</div>
+                        <div style="font-size: 22px">{{ $t('avtar.tip3') }}</div>
                         <br>
-                        <div style="font-size: 14px">{{ $t('avtar1.tip_note') }}</div>
+                        <div style="font-size: 14px">{{ $t('avtar.tip_note3') }}</div>
                       </q-card-section>
                     </q-card>
                   </div></div>
-                  <div class="col-2"><div class="q-pa-md">
+                  <!--                  第四个卡片-->
+                  <div class="col-2">
+                    <div class="q-pa-md aaa">
                     <q-card flat>
                       <q-item>
                         <q-item-section avatar>
-                          <q-avatar square icon="img:statics/equipment.svg" size="120px"></q-avatar>
+                          <q-avatar square icon="img:statics/equipment4.svg" size="120px"></q-avatar>
                         </q-item-section>
                       </q-item>
                       <q-card-section style="text-align: left!important;margin-left: 25px;padding-right: -25px">
-                        <div style="font-size: 22px">{{ $t('avtar1.tip') }}</div>
+                        <div style="font-size: 22px">{{ $t('avtar.tip4') }}</div>
                         <br>
-                        <div style="font-size: 14px">{{ $t('avtar1.tip_note') }}</div>
+                        <div style="font-size: 14px">{{ $t('avtar.tip_note4') }}</div>
                       </q-card-section>
                     </q-card>
                   </div></div>
                   <div class="col-2"></div>
+                </div>
+              </div>
+<!--              第三个模块-->
+              <div class="col" style=" margin-top: -10%;margin-bottom: -13%">
+                <div style="position: relative">
+                  <svg width="100%" height="100%" viewBox="0 0 1920 765" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+
+                    <g id="页面-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                      <g id="首页-软件演示" transform="translate(0.000000, -1658.000000)" fill="#F6F6F8">
+                        <path d="M0,1649 L1920,1649 L1920,2157.6964 C1920,2209.42844 1880.54416,2252.62062 1829.02315,2257.28848 L109.023153,2413.12238 C54.0199647,2418.10573 5.39126796,2377.55664 0.407918399,2322.55345 C0.136111606,2319.55341 -2.80528059e-14,2316.54263 0,2313.5303 L0,1649 L0,1649 Z" id="矩形备份-2" transform="translate(960.000000, 2036.000000) scale(-1, -1) translate(-960.000000, -2036.000000) "></path>
+                      </g>
+                    </g>
+                  </svg>
+<!--                  左侧图-->
+                  <q-img src="/statics/computer2.svg" style="position: absolute;left: 15.31%;top:4%;width: 30%"/>
+<!--                  右侧文字-->
+                  <div class="column" style="position: absolute;left: 54%;top:23%">
+                   <span class="col-3" style="font-size: 32px;font-weight: 500">
+                     {{ $t('avatar2.tit') }}
+                     <br>
+                    <q-separator inset style="color: #FFCE05;width: 40px;background-color:#FFCE05;margin-left: -0.1%;margin-top: 3%" />
+                    <br>
+                   </span>
+<!--                    01-->
+
+                      <div class="col-3" style="margin-bottom: 3% ">
+                        <span  style="font-weight: bold;color: #999999;font-size: 22px;">
+                           01
+                        </span>
+                        <span style="font-size: 18px;font-weight: 500;margin-left: 5%;color: #333333">
+                        {{ $t('avatar2.tip1') }}
+                      </span>
+                        <br>
+                        <span style="width: 50.2%;float: left !important; overflow: hidden !important; text-overflow: ellipsis !important; white-space: normal !important;margin-left: 8.5%;font-size: 14px;font-weight: 400;color: #666666;line-height: 21px;
+letter-spacing: 2px;margin-top: 2%">
+                          {{ $t('avatar2.tip1_note') }}
+                        </span>
+                      </div>
+<!--                    02-->
+                    <div class="col-3" style="margin-bottom: 1% ">
+                        <span  style="font-weight: bold;color: #999999;font-size: 22px;">
+                           02
+                        </span>
+                      <span style="font-size: 18px;font-weight: 500;margin-left: 5%;color: #333333">
+                        {{ $t('avatar2.tip2') }}
+                      </span>
+                      <br>
+                      <span style="width: 50.2%;float: left !important; overflow: hidden !important; text-overflow: ellipsis !important; white-space: normal !important;margin-left: 8.5%;font-size: 14px;font-weight: 400;color: #666666;line-height: 21px;
+letter-spacing: 2px;;margin-top: 2%">
+                          {{ $t('avatar2.tip2_note') }}
+                        </span>
+                    </div>
+<!--                    03-->
+                    <div class="col-3" style="margin-bottom: 5% ">
+                        <span  style="font-weight: bold;color: #999999;font-size: 22px;">
+                           03
+                        </span>
+                      <span style="font-size: 18px;font-weight: 500;margin-left: 5%;color: #333333">
+                        {{ $t('avatar2.tip3') }}
+                      </span>
+                      <br>
+                      <span style="width: 50.2%;float: left !important; overflow: hidden !important; text-overflow: ellipsis !important; white-space: normal !important;margin-left: 8.5%;font-size: 14px;font-weight: 400;color: #666666;line-height: 21px;
+letter-spacing: 2px;;margin-top: 2%">
+                          {{ $t('avatar2.tip3_note') }}
+                        </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+<!--              第四个模块-->
+              <div class="col">
+                <div style="position: relative;text-align: center">
+                  <span style="font-size: 32px;font-weight: 500;letter-spacing: 4px;color: #333333;margin-bottom: 20%">{{ $t('avatar3.awards') }}</span>
+                  <q-separator inset style="color: #FFCE05;width: 40px;background-color:#FFCE05;margin-left: 49.1%;margin-top: 1%" />
+<!--                  背景图-->
+                  <q-img src="statics/map.png" style="width: 100%;height: 100%;margin-top: 5%"/>
+                    <q-img src="statics/award.png" style="width: 27%;position: absolute;left: 17%;top: 61%"/>
+                  <div style="position: absolute;left: 54%;top: 63%">
+                    <span style="width: 60%;font-size: 22px;font-weight: 500;text-align: left;color: #ffffff;line-height: 33px;letter-spacing: 1px;float: left !important; overflow: hidden !important; text-overflow: ellipsis !important; ">
+                      {{ $t('avatar3.tip_note') }}
+                    </span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -211,6 +299,19 @@
           </q-page-sticky>
           </q-page>
           </q-page-container>
+<!--        页脚-->
+        <q-footer>
+          <div class="row" style="height: 300px">
+            <div class="col-2"></div>
+            <div class="col-2">
+              <q-img src="statics/logo_under.svg" width="6%"/>
+              <span style="width: 118px;height: 22px;font-size: 20px;font-weight: 700;text-align: left;color: #000000;line-height: 22px;">{{ $t('index.title') }}</span>
+            </div>
+            <div class="col-2"></div>
+            <div class="col-4"></div>
+            <div class="col-2"></div>
+          </div>
+        </q-footer>
         <q-dialog v-model="contact">
             <q-card style="width: 680px!important;height: 498px; overflow-x: hidden">
               <q-bar style="height: 70px;background-color:white;">
@@ -292,8 +393,15 @@ textarea:focus {
 //  margin-top: 1rem
 //}
 .aaa:hover {
-  background-position: right center;
-  box-shadow: 0 12px 20px -11px #5b86e5;
+  //background-position: right center;
+  //box-shadow: 0 12px 20px -11px #5b86e5;
+  background: #ffffff;
+  border-radius: 26px;
+  box-shadow: 0px 10px 30px 9px rgba(192,192,192,0.10);
+  transition: all 0.3s ease-in-out;
+}
+.aaa {
+  width: 90%;
 }
 </style>
 <script>
