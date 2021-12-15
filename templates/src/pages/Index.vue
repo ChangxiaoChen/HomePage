@@ -7,10 +7,10 @@
                    :style="{ height: scroll_height, width: scroll_width }"
     >
       <q-layout view="lHh Lpr lff" ref="Index">
-          <q-header>
+          <q-header style="background-color: #1370EE">
             <div class="row" style="height:110px">
               <div class="col-2"></div>
-              <div class="col-2" style="align-self: center">
+              <div class="col-4 my-font-D" style="align-self: center;margin-left: 0.3%">
                 <q-btn
                   icon="img:statics/logo.svg"
                   round
@@ -18,34 +18,35 @@
                   unelevated
                   flat
                   to="/"
+                  size="xl"
                 />
-                <a href="/" style="color: white; text-decoration:none">
+                <a href="/" style="color: white; text-decoration:none;font-size: 20px;font-weight: 700;margin-left: 1%">
                   {{ $t('index.title') }}
                 </a>
                 </div>
-              <div class="col-6" style="align-self: center">
-                <q-btn-group flat >
-                  <q-btn flat :label=navbar.front_page to="/"></q-btn>
-                  <q-btn flat :label=navbar.community to="/bbs"></q-btn>
-                  <q-btn flat :label=navbar.market></q-btn>
-                  <q-btn-dropdown flat :label=navbar.demo>
+              <div class="col-4" style="align-self: center;">
+                <q-btn-group flat style="float: right">
+                  <q-btn flat :label=navbar.front_page to="/" style="font-size: 16px;font-weight: 400"></q-btn>
+                  <q-btn flat :label=navbar.community to="/bbs" style="font-size: 16px;font-weight: 400"></q-btn>
+                  <q-btn flat :label=navbar.market style="font-size: 16px;font-weight: 400"></q-btn>
+                  <q-btn-dropdown flat :label=navbar.demo style="font-size: 16px;font-weight: 400">
                     <q-list>
-                      <q-item clickable v-close-popup @click="goTo('http://www.quasarchs.com/vue-components/button/')">
+                      <q-item clickable v-close-popup @click="goTo('https://production.56yhz.com/')">
                         <q-item-section>
                           <q-item-label>IOS</q-item-label>
                         </q-item-section>
                       </q-item>
-                      <q-item clickable v-close-popup @click="goTo('http://www.quasarchs.com/vue-components/button/')">
+                      <q-item clickable v-close-popup @click="goTo('https://production.56yhz.com/')">
                         <q-item-section>
                           <q-item-label>Android</q-item-label>
                         </q-item-section>
                       </q-item>
-                      <q-item clickable v-close-popup @click="goTo('http://www.quasarchs.com/vue-components/button/')">
+                      <q-item clickable v-close-popup @click="goTo('https://production.56yhz.com/')">
                         <q-item-section>
                           <q-item-label>Ipad</q-item-label>
                         </q-item-section>
                       </q-item>
-                      <q-item clickable v-close-popup @click="goTo('http://www.quasarchs.com/vue-components/button/')">
+                      <q-item clickable v-close-popup @click="goTo('https://production.56yhz.com/')">
                         <q-item-section>
                           <q-item-label>Windows</q-item-label>
                         </q-item-section>
@@ -55,9 +56,10 @@
                   <q-btn
                     :label=navbar.contact
                     @click="contact = true"
+                    style="font-size: 16px;font-weight: 400"
                   />
                   <!--          选择语言下拉框-->
-                  <q-btn-dropdown :label=langlable>
+                  <q-btn-dropdown :label=langlable style="font-size: 16px;font-weight: 400">
                     <q-list>
                       <q-item clickable v-close-popup @click="langChange('zh-hans')">
                         <q-item-section>
@@ -85,56 +87,28 @@
               </div>
               <div class="col-2"></div>
             </div>
+            <q-separator class="center" style="color: #FFCE05;width: 65%;background-color:#d8d8d8;margin: 0 auto"/>
           </q-header>
-        <q-separator inset />
-        <q-page-container>
+        <q-page-container style="margin-top: -1%">
           <q-page>
-            <div class="column" style="height: 3529px">
+            <div class="column" :style="{height: scroll_height2}">
 <!--              第一个模块-->
-              <div class="col">
-                <div style="position: relative">
-                  <svg width="100%" height="100%" viewBox="0 0 1920 880" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                    <g id="页面-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                      <g id="首页" fill="#1370EE">
-                        <path d="M0,0 L1920,0 L1920,599.84668 C1920,651.063565 1881.30299,694.001406 1830.3618,699.308397 L110.3618,878.495887 C55.4306103,884.218551 6.26094715,844.32716 0.538283207,789.39597 C0.179669518,785.953679 -3.75978507e-14,782.495091 0,779.034171 L0,0 L0,0 Z" id="矩形"></path>
-                      </g>
-                    </g>
-                  </svg>
-                  <div style="position:absolute;left:31%; top:10%;font-size: 60px;font-weight: normal;color: white;letter-spacing: 10px;text-align: center">
+              <div class="col-4 my-font">
+                <div style="position: relative;display: flex; justify-content: center;">
+                  <q-img src="statics/bg1.svg" />
+                  <div style="position:absolute;top:10%;font-size: 60px;font-weight: 600;color: white;letter-spacing: 10px;text-align: center;">
                     {{ $t('index.title') }}
                     <br>
                     {{ $t('index.title2') }}
                     <br>
-                    <q-btn size="xl" style="background-color:#FFCE05;width: 260px;height: 66px;margin-top: 10%" align="left" icon ="img:statics/gitee.svg"><span style="color: black;font-size: 30px;font-weight: normal;margin-left: 15%">{{ code_warehous }}</span></q-btn>
+                    <q-btn size="xl" style="background-color:#FFCE05;width: 260px;height: 66px;margin-top: 10%" align="left" icon ="img:statics/gitee.svg" @click="goTo('https://gitee.com/Singosgu/GreaterWMS')"><span class="my-font" style="color: #333333;font-size: 30px;font-weight: 500;margin-left: 15%">{{ code_warehous }}</span></q-btn>
                   </div>
-                  <q-img src="/statics/computer.svg" style="position: absolute;left: 19%;top:50%;width: 61%"/>
-                  <q-media-player
-                    type="video"
-                    background-color="black"
-                    :muted="muted"
-                    radius="1rem"
-                    :autoplay="true"
-                    :show-big-play-button="true"
-                    :sources="video.sources"
-                    :poster="video.poster"
-                    :tracks="video.tracks"
-                    track-language="English"
-                    @ended="onEnded"
-                  >
-                    <template v-slot:overlay>
-                      <div>
-                        <img
-                          src="public/statics/logo.svg"
-                          style="width:50px; max-width: 50px;"
-                        >
-                      </div>
-                    </template>
-                  </q-media-player>
+                  <q-img src="/statics/computer.svg" style="position: absolute;top:50%;width: 61%"/>
                 </div>
               </div>
 <!--               第二个模块-->
-              <div class="col" style="text-align: center;margin-bottom: -20%">
-                <span style="font-size: 32px;font-weight: normal;text-align: center">{{ $t('index.features') }}</span>
+              <div class="col-2" style="text-align: center;">
+                <span class="my-font" style="font-size: 32px;font-weight: 600;text-align: center;color: #333333">{{ $t('index.features') }}</span>
                 <q-separator inset style="color: #FFCE05;width: 40px;background-color:#FFCE05;margin-left: 49.1%;margin-top: 1%" />
                 <div class="row" style="margin-top: 70px">
                   <div class="col-2"></div>
@@ -147,10 +121,10 @@
                             <q-avatar square icon="img:statics/equipment1.svg" size="120px"></q-avatar>
                           </q-item-section>
                         </q-item>
-                        <q-card-section style="text-align: left!important;margin-left: 25px;padding-right: -25px">
-                          <div style="font-size: 22px">{{ $t('avtar.tip1') }}</div>
+                        <q-card-section class="my-font" style="text-align: left!important;margin-left: 25px;padding-right: -25px">
+                          <div style="font-size: 22px;color: #333333;font-weight: 500">{{ $t('avtar.tip1') }}</div>
                           <br>
-                          <div style="font-size: 14px">{{ $t('avtar.tip_note1') }}</div>
+                          <div style="font-size: 14px;color: #666666;font-weight: 400!important;">{{ $t('avtar.tip_note1') }}</div>
                         </q-card-section>
                       </q-card>
                     </div>
@@ -164,10 +138,10 @@
                           <q-avatar square icon="img:statics/equipment2.svg" size="120px"></q-avatar>
                         </q-item-section>
                       </q-item>
-                      <q-card-section style="text-align: left!important;margin-left: 25px;padding-right: -25px">
-                        <div style="font-size: 22px">{{ $t('avtar.tip2') }}</div>
+                      <q-card-section class="my-font" style="text-align: left!important;margin-left: 25px;padding-right: -25px;">
+                        <div style="font-size: 22px;color: #333333;font-weight: 500">{{ $t('avtar.tip2') }}</div>
                         <br>
-                        <div style="font-size: 14px">{{ $t('avtar.tip_note2') }}</div>
+                        <div style="font-size: 14px;color: #666666;font-weight: 400!important;">{{ $t('avtar.tip_note2') }}</div>
                       </q-card-section>
                     </q-card>
                   </div></div>
@@ -180,10 +154,10 @@
                           <q-avatar square icon="img:statics/equipment3.svg" size="120px"></q-avatar>
                         </q-item-section>
                       </q-item>
-                      <q-card-section style="text-align: left!important;margin-left: 25px;padding-right: -25px">
-                        <div style="font-size: 22px">{{ $t('avtar.tip3') }}</div>
+                      <q-card-section class="my-font" style="text-align: left!important;margin-left: 25px;padding-right: -25px">
+                        <div style="font-size: 22px;color: #333333;font-weight: 500">{{ $t('avtar.tip3') }}</div>
                         <br>
-                        <div style="font-size: 14px">{{ $t('avtar.tip_note3') }}</div>
+                        <div style="font-size: 14px;color: #666666;font-weight: 400!important;">{{ $t('avtar.tip_note3') }}</div>
                       </q-card-section>
                     </q-card>
                   </div></div>
@@ -196,10 +170,10 @@
                           <q-avatar square icon="img:statics/equipment4.svg" size="120px"></q-avatar>
                         </q-item-section>
                       </q-item>
-                      <q-card-section style="text-align: left!important;margin-left: 25px;padding-right: -25px">
-                        <div style="font-size: 22px">{{ $t('avtar.tip4') }}</div>
+                      <q-card-section class="my-font" style="text-align: left!important;margin-left: 25px;padding-right: -25px">
+                        <div style="font-size: 22px;color: #333333;font-weight: 500">{{ $t('avtar.tip4') }}</div>
                         <br>
-                        <div style="font-size: 14px">{{ $t('avtar.tip_note4') }}</div>
+                        <div style="font-size: 14px;color: #666666;font-weight: 400!important;">{{ $t('avtar.tip_note4') }}</div>
                       </q-card-section>
                     </q-card>
                   </div></div>
@@ -207,10 +181,9 @@
                 </div>
               </div>
 <!--              第三个模块-->
-              <div class="col" style=" margin-top: -10%;margin-bottom: -13%">
+              <div class="col-3">
                 <div style="position: relative">
                   <svg width="100%" height="100%" viewBox="0 0 1920 765" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-
                     <g id="页面-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                       <g id="首页-软件演示" transform="translate(0.000000, -1658.000000)" fill="#F6F6F8">
                         <path d="M0,1649 L1920,1649 L1920,2157.6964 C1920,2209.42844 1880.54416,2252.62062 1829.02315,2257.28848 L109.023153,2413.12238 C54.0199647,2418.10573 5.39126796,2377.55664 0.407918399,2322.55345 C0.136111606,2319.55341 -2.80528059e-14,2316.54263 0,2313.5303 L0,1649 L0,1649 Z" id="矩形备份-2" transform="translate(960.000000, 2036.000000) scale(-1, -1) translate(-960.000000, -2036.000000) "></path>
@@ -221,7 +194,7 @@
                   <q-img src="/statics/computer2.svg" style="position: absolute;left: 15.31%;top:4%;width: 30%"/>
 <!--                  右侧文字-->
                   <div class="column" style="position: absolute;left: 54%;top:23%">
-                   <span class="col-3" style="font-size: 32px;font-weight: 500">
+                   <span  class="col-3 my-font" style="font-size: 32px;font-weight: 600;color: #333333">
                      {{ $t('avatar2.tit') }}
                      <br>
                     <q-separator inset style="color: #FFCE05;width: 40px;background-color:#FFCE05;margin-left: -0.1%;margin-top: 3%" />
@@ -233,11 +206,11 @@
                         <span  style="font-weight: bold;color: #999999;font-size: 22px;">
                            01
                         </span>
-                        <span style="font-size: 18px;font-weight: 500;margin-left: 5%;color: #333333">
+                        <span class="my-font" style="font-size: 18px;font-weight: 500;margin-left: 5%;color: #333333">
                         {{ $t('avatar2.tip1') }}
                       </span>
                         <br>
-                        <span style="width: 50.2%;float: left !important; overflow: hidden !important; text-overflow: ellipsis !important; white-space: normal !important;margin-left: 8.5%;font-size: 14px;font-weight: 400;color: #666666;line-height: 21px;
+                        <span class="my-font" style="width: 50.2%;float: left !important; overflow: hidden !important; text-overflow: ellipsis !important; white-space: normal !important;margin-left: 8.5%;font-size: 14px;font-weight: 400;color: #666666;line-height: 21px;
 letter-spacing: 2px;margin-top: 2%">
                           {{ $t('avatar2.tip1_note') }}
                         </span>
@@ -247,25 +220,25 @@ letter-spacing: 2px;margin-top: 2%">
                         <span  style="font-weight: bold;color: #999999;font-size: 22px;">
                            02
                         </span>
-                      <span style="font-size: 18px;font-weight: 500;margin-left: 5%;color: #333333">
+                      <span class="my-font" style="font-size: 18px;font-weight: 500;margin-left: 5%;color: #333333">
                         {{ $t('avatar2.tip2') }}
                       </span>
                       <br>
-                      <span style="width: 50.2%;float: left !important; overflow: hidden !important; text-overflow: ellipsis !important; white-space: normal !important;margin-left: 8.5%;font-size: 14px;font-weight: 400;color: #666666;line-height: 21px;
+                      <span class="my-font" style="width: 50.2%;float: left !important; overflow: hidden !important; text-overflow: ellipsis !important; white-space: normal !important;margin-left: 8.5%;font-size: 14px;font-weight: 400;color: #666666;line-height: 21px;
 letter-spacing: 2px;;margin-top: 2%">
                           {{ $t('avatar2.tip2_note') }}
                         </span>
                     </div>
 <!--                    03-->
                     <div class="col-3" style="margin-bottom: 5% ">
-                        <span  style="font-weight: bold;color: #999999;font-size: 22px;">
+                        <span style="font-weight: bold;color: #999999;font-size: 22px;">
                            03
                         </span>
-                      <span style="font-size: 18px;font-weight: 500;margin-left: 5%;color: #333333">
+                      <span class="my-font" style="font-size: 18px;font-weight: 500;margin-left: 5%;color: #333333">
                         {{ $t('avatar2.tip3') }}
                       </span>
                       <br>
-                      <span style="width: 50.2%;float: left !important; overflow: hidden !important; text-overflow: ellipsis !important; white-space: normal !important;margin-left: 8.5%;font-size: 14px;font-weight: 400;color: #666666;line-height: 21px;
+                      <span class="my-font" style="width: 50.2%;float: left !important; overflow: hidden !important; text-overflow: ellipsis !important; white-space: normal !important;margin-left: 8.5%;font-size: 14px;font-weight: 400;color: #666666;line-height: 21px;
 letter-spacing: 2px;;margin-top: 2%">
                           {{ $t('avatar2.tip3_note') }}
                         </span>
@@ -274,23 +247,117 @@ letter-spacing: 2px;;margin-top: 2%">
                 </div>
               </div>
 <!--              第四个模块-->
-              <div class="col">
+              <div class="col-2">
                 <div style="position: relative;text-align: center">
-                  <span style="font-size: 32px;font-weight: 500;letter-spacing: 4px;color: #333333;margin-bottom: 20%">{{ $t('avatar3.awards') }}</span>
+                  <span class="my-font" style="font-size: 32px;font-weight: 600;letter-spacing: 4px;color: #333333;margin-bottom: 20%">{{ $t('avatar3.awards') }}</span>
                   <q-separator inset style="color: #FFCE05;width: 40px;background-color:#FFCE05;margin-left: 49.1%;margin-top: 1%" />
 <!--                  背景图-->
                   <q-img src="statics/map.png" style="width: 100%;height: 100%;margin-top: 5%"/>
                     <q-img src="statics/award.png" style="width: 27%;position: absolute;left: 17%;top: 61%"/>
                   <div style="position: absolute;left: 54%;top: 63%">
-                    <span style="width: 60%;font-size: 22px;font-weight: 500;text-align: left;color: #ffffff;line-height: 33px;letter-spacing: 1px;float: left !important; overflow: hidden !important; text-overflow: ellipsis !important; ">
-                      {{ $t('avatar3.tip_note') }}
+                    <span class="my-font" style="width: 60%;font-size: 22px;font-weight: 500;text-align: left;color: #ffffff;line-height: 33px;letter-spacing: 1px;float: left !important; overflow: hidden !important; text-overflow: ellipsis !important; ">
+                      {{ $t('avatar3.tip_note1') }}
                     </span>
                   </div>
                 </div>
               </div>
+<!--              页脚-->
+              <div class="col-1">
+                <div class="row" style="margin-top: 10%">
+                  <div class="col-2"></div>
+                  <!--            logo加介绍-->
+                  <div class="col-2">
+                    <div style="margin-top: 3%">
+                      <q-img src="statics/logo_under.svg" width="9%" :ratio="32/42"/>
+                      <span class="my-font-D" style="width: 118px;height: 22px;font-size: 20px;font-weight: 700;color: #000000;margin-left: 2%">{{ $t('index.title') }}</span>
+                    </div>
+                    <div class="my-font" style="width: 266px;height: 62px;font-size: 14px;font-weight: 400;text-align: left;color: #666666;line-height: 21px;margin-top: 7%;">{{ $t('avatar3.tip_note2') }}</div>
+                  </div>
+                  <div class="col-2"></div>
+                  <div class="col-4 row">
+                    <div class="col-4">
+                      <div class="my-font" style="font-size: 20px;font-weight: 500;color: #333333;">
+                        {{ $t('avatar3.about') }}
+                      </div>
+                      <br>
+                      <table class="my-font" style="font-size: 14px;font-weight: 400;color: #666666;">
+                        <tr>
+                          <td height="30px">{{ $t('index.code_warehouse') }}</td>
+                        </tr>
+                        <tr>
+                          <td height="30px">{{ $t('avatar3.issued') }}</td>
+                        </tr>
+                        <tr>
+                          <td height="30px">{{ $t('avatar3.use_tutorial') }}</td>
+                        </tr>
+                        <tr>
+                          <td height="30px">{{ $t('avatar3.problem') }}</td>
+                        </tr>
+                      </table>
+                    </div>
+                    <div class="col-4">
+                      <div style="font-size: 20px;font-weight: 500;color: #333333;">
+                        {{ $t('avatar3.download') }}
+                      </div>
+                      <br>
+                      <table style="font-size: 14px;font-weight: 400;color: #666666;">
+                        <tr>
+                          <td height="30px">IOS</td>
+                        </tr>
+                        <tr>
+                          <td height="30px">Android</td>
+                        </tr>
+                        <tr>
+                          <td height="30px">Pad</td>
+                        </tr>
+                        <tr>
+                          <td height="30px">PC</td>
+                        </tr>
+                      </table>
+                    </div>
+                    <div class="col-4">
+                      <div style="font-size: 20px;font-weight: 500;color: #333333;">
+                        {{ $t('index.navbar.community') }}
+                      </div>
+                      <br>
+                      <table style="font-size: 14px;font-weight: 400;color: #666666;">
+                        <tr>
+                          <td height="30px">{{ $t('avatar3.g_wms') }}</td>
+                        </tr>
+                        <tr>
+                          <td height="30px">{{ $t('avatar3.dvadmin') }}</td>
+                        </tr>
+                        <tr>
+                          <td height="30px">Quasar Framework</td>
+                        </tr>
+                      </table>
+                    </div>
+                  </div>
+                  <div class="col-2"></div>
+                  <!--            下划线-->
+                  <q-separator class="center" inset style="color: #FFCE05;width: 80%;background-color:#d8d8d8;margin: 2% auto"/>
+                  <br>
+                </div>
+<!--                备案号-->
+                          <div class="row my-font" style="height:50px">
+                            <div class="col-2"></div>
+                            <div class="col-3" style="font-size: 14px;font-weight: 400;color: #666666">
+                              {{ $t('avatar3.record_number') }}
+                              <a href="" style="color: blue">{{ $t('avatar3.icp') }}</a>
+                              {{ $t('avatar3.record_number2') }}
+                            </div>
+                            <div class="col-3"></div>
+                            <div class="col-2">
+                              <q-img src="statics/wechat.svg" width="9%"></q-img>
+                              <q-img src="statics/gitee.svg" width="9%" style="margin-left: 8%"></q-img>
+                              <q-img src="statics/github.svg" width="9%" style="margin-left: 8%"></q-img>
+                            </div>
+                            <div class="col-2"></div>
+                          </div>
+              </div>
             </div>
 <!--            回到顶部-->
-            <q-page-sticky v-show='pagelocation > 0.5' position="bottom-right" :offset="[18, 18]" @click="ScrollToTop()">
+            <q-page-sticky v-show='pagelocation > 0.3' position="bottom-right" :offset="[25, 100]" @click="ScrollToTop()">
               <q-fab
                 icon="arrow_upward"
                 color="primary"
@@ -300,18 +367,23 @@ letter-spacing: 2px;;margin-top: 2%">
           </q-page>
           </q-page-container>
 <!--        页脚-->
-        <q-footer>
-          <div class="row" style="height: 300px">
-            <div class="col-2"></div>
-            <div class="col-2">
-              <q-img src="statics/logo_under.svg" width="6%"/>
-              <span style="width: 118px;height: 22px;font-size: 20px;font-weight: 700;text-align: left;color: #000000;line-height: 22px;">{{ $t('index.title') }}</span>
-            </div>
-            <div class="col-2"></div>
-            <div class="col-4"></div>
-            <div class="col-2"></div>
-          </div>
-        </q-footer>
+<!--        <q-footer class="bg-white">-->
+<!--          <div class="row" style="height:50px">-->
+<!--            <div class="col-2"></div>-->
+<!--            <div class="col-3" style="font-size: 14px;font-weight: 400;color: #666666">-->
+<!--              {{ $t('avatar3.record_number') }}-->
+<!--              <a href="" style="color: blue">{{ $t('avatar3.icp') }}</a>-->
+<!--              {{ $t('avatar3.record_number2') }}-->
+<!--            </div>-->
+<!--            <div class="col-3"></div>-->
+<!--            <div class="col-2">-->
+<!--              <q-img src="statics/wechat.svg" width="9%"></q-img>-->
+<!--              <q-img src="statics/gitee.svg" width="9%" style="margin-left: 8%"></q-img>-->
+<!--              <q-img src="statics/github.svg" width="9%" style="margin-left: 8%"></q-img>-->
+<!--            </div>-->
+<!--            <div class="col-2"></div>-->
+<!--          </div>-->
+<!--        </q-footer>-->
         <q-dialog v-model="contact">
             <q-card style="width: 680px!important;height: 498px; overflow-x: hidden">
               <q-bar style="height: 70px;background-color:white;">
@@ -427,6 +499,7 @@ export default defineComponent({
       visible: false,
       scroll_width:  Screen.width + '' + 'px',
       scroll_height: Screen.height + '' + 'px',
+      scroll_height2: Screen.height * 3.8 + '' +'px',
       thumbStyle: {
         right: '4px',
         borderRadius: '5px',

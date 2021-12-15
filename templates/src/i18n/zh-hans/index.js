@@ -62,6 +62,17 @@
    },
    avatar3: {
     awards: '我们的奖项',
-     tip_note: '荣获2021年度Gitee最有价值开源项目奖项'
+     tip_note1: '荣获2021年度Gitee最有价值开源项目奖项',
+     tip_note2: '一款打通上下游、并赋予「人工智能」的仓 库管理系统，高自由度，高自定义化，支持 企业整体业务需求。',
+     about: '软件相关',
+     download: '下载',
+     issued: '发行说明',
+     use_tutorial: '使用教程',
+     problem: '常见问题',
+     g_wms: 'GreaterWMS社区',
+     dvadmin: 'DVAdmin社区',
+     record_number: 'Copyright &#169 2019',
+     icp: 'ICP证',
+     record_number2: '沪ICP备16034540号-1'
    }
 }

@@ -4,3 +4,20 @@
   background-size: 100% 100%!important;
   margin-top: -50px;
 }
+@font-face {
+  font-family: SourceHanSans;
+  src: url(../components/SourceHanSansSC-VF.woff);
+}
+@font-face {
+  font-family: D;
+  src: url(../components/D-DIN.woff);
+}
+
+
+// 声明一个应用它的类
+.my-font {
+  font-family: 'SourceHanSans';
+}
+.my-font-D {
+  font-family: 'D';
+}
