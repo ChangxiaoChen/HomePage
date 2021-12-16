@@ -43,7 +43,7 @@ urlpatterns = [
     re_path(r'^favicon\.ico$', views.favicon, name='favicon'),
     re_path('^css/.*$', views.css, name='css'),
     re_path('^js/.*$', views.js, name='js'),
-    re_path('^statics/.*$', views.statics, name='statics'),
+    re_path('^static/.*$', views.statics, name='static'),
     re_path('^fonts/.*$', views.fonts, name='fonts'),
     re_path(r'^static/(?P<path>.*)$', return_static, name='static'),
     re_path(r'^media/(?P<path>.*)$', static_serve, {'document_root': settings.MEDIA_ROOT}),
@@ -52,4 +52,7 @@ urlpatterns = [
     path('swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
     path('docs/', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
     path('user/api/v1/',include('user.urls')),
+    path('nav/api/v1/',include('navbar.urls')),
+    path('article/api/v1/',include('article.urls')),
+    path('contact/api/v1/',include('contactus.urls')),
 ]

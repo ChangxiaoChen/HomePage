@@ -9,6 +9,7 @@ from utils.HomePage_logging import get_logger
 from rest_framework_jwt.utils import jwt_payload_handler, jwt_encode_handler
 from utils import get_code
 from django.core.mail import send_mail
+from utils.getnickname import get_nickname
 
 logger = get_logger()
 
@@ -25,28 +26,44 @@ class RegisterSerializer(serializers.ModelSerializer):
         required=True,
         min_length=8,
         max_length=16,
-        error_messages={"blank": "请输入密码", "required": "请输入密码", "max_length": "密码最长16个字符", "min_length": "密码最短8个字符"},
+        error_messages={"blank": "请输入密码", "required": "请输入密码", "max_length": "密码不能包含中文，长度6位数以上，并且包含英语与数字", "min_length": "密码不能包含中文，长度6位数以上，并且包含英语与数字"},
+        write_only=True, )
+    re_password = serializers.CharField(
+        required=True,
+        min_length=8,
+        max_length=16,
+        error_messages={"blank": "请输入密码", "required": "请输入密码", "max_length": "密码不能包含中文，长度6位数以上，并且包含英语与数字",
+                        "min_length": "密码不能包含中文，长度6位数以上，并且包含英语与数字"},
         write_only=True, )
 
     class Meta:
         model = UserInfo
-        fields = ['code', 'email', 'password']
+        fields = ['code', 'email', 'password','re_password']
 
     def validate(self, attrs):
-        verification_code = str(attrs.get('code'))
+
         email = str(attrs.get("email"))
         if not re.match(r'^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$', email):
-            raise ValidationError({"detail": "邮箱格式不正确"})
+            raise ValidationError({"detail": "邮箱格式错误，请重新输入"})
         code = cache.get(settings.CACHE_REG_SMS % email)
-
+        verification_code = str(attrs.get('code'))
         if verification_code != code:
-            raise ValidationError({"detail": "验证码错误"})
+            raise ValidationError({"detail": "请输入正确的验证码"})
+        password = str(attrs.get("password"))
+        re_password = str(attrs.get("re_password"))
 
+        if not re.match(r'^[a-zA-Z0-9]{6,18}$', password) and not re.match(r'^[a-zA-Z0-9]{6,18}$', re_password):
+            raise ValidationError({"detail": "密码不能包含中文，长度6位数以上，并且包含英语与数字"})
+        if password != re_password:
+            raise ValidationError({"detail": "密码不一致，请重新输入"})
         return attrs
 
     def create(self, validated_data):
         validated_data.pop('code')
+        validated_data.pop('re_password')
         validated_data['username'] = 'WMS' + validated_data['email']
+        validated_data['nickname'] = get_nickname()
+        validated_data['intro'] = '我的签名'
         res = UserInfo.objects.create_user(**validated_data)
         res.save()
         print(validated_data.get('email') + '注册成功')
@@ -82,6 +99,7 @@ class LoginSerilizers(serializers.ModelSerializer):
         self.context['token'] = token
         self.context['email'] = user.email
         self.context['id'] = user.id
+        self.context['intro'] = user.intro
         return attrs
 
     # 获取用户
@@ -212,4 +230,40 @@ class CodeLoginSerilizers(serializers.ModelSerializer):
         token = jwt_encode_handler(payload)
         return token
 
+class PasswordPutModelSerializer(serializers.ModelSerializer):
+    '''
+    修改密码
+    '''
+    password = serializers.CharField(max_length=18,min_length=6,write_only=True)
+    class Meta:
+        model = UserInfo
+        fields = ['email','password']
+        extra_kwargs = {
+            'password':{'read_only':False}
 
+        }
+
+
+    def validate(self, attrs):
+        password=attrs.get('password')
+        if not re.match(r'^[a-zA-Z0-9]{6,18}$', password) and not re.match(r'^[a-zA-Z0-9]{6,18}$', password):
+            raise ValidationError({"detail": "密码不能包含中文，长度6位数以上，并且包含英语与数字"})
+        return attrs
+
+    def update(self, instance, validated_data):
+        user=UserInfo(**validated_data)
+        user.set_password(validated_data["password"])
+        user.save()
+        return instance
+
+
+
+class UserDetailModelSerializer(serializers.ModelSerializer):
+    '''
+    用户详情
+    '''
+    # icon = serializers.ImageField(max_length=None, allow_empty_file=False, use_url=True)
+    # suffix = serializers.CharField(allow_blank=False)
+    class Meta:
+        model = UserInfo
+        fields = ['nickname','intro','icon']

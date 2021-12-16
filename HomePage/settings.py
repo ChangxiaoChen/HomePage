@@ -17,7 +17,6 @@ import rest_framework.schemas.coreapi
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
@@ -29,10 +28,10 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
 # Application definition
 
 INSTALLED_APPS = [
+    'simpleui',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -40,14 +39,19 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'corsheaders',
     'user.apps.UserregsterConfig',
     'drf_yasg',
+    'navbar.apps.NavbarConfig',
+    'article.apps.ArticleConfig',
+    'contactus.apps.ContactusConfig',
 
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     # 'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -76,7 +80,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'HomePage.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
@@ -86,7 +89,6 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
@@ -106,7 +108,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
@@ -120,12 +121,13 @@ USE_L10N = True
 
 USE_TZ = False
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
-
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
+]
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
@@ -136,6 +138,7 @@ AUTH_USER_MODEL = 'user.UserInfo'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
+UPLOAD_ADDRESS = 'media/icon/'
 
 # 真实项目上线后，日志文件打印级别不能过低，因为一次日志记录就是一次文件io操作
 LOGGING = {
@@ -208,25 +211,52 @@ LOGGING = {
     # 日志对象
     'loggers': {
         'HomePage': {
-            'handlers': ['console','info', 'default', 'error',],
+            'handlers': ['console', 'info', 'default', 'error', ],
             'propagate': True,  # 是否让日志信息继续冒泡给其他的日志处理系统
         },
     }
 }
 
+CORS_ORIGIN_ALLOW_ALL = True
+CORS_ALLOW_METHODS = (
+    'DELETE',
+    'GET',
+    'OPTIONS',
+    'PATCH',
+    'POST',
+    'PUT',
+    'VIEW',
+)
+
+CORS_ALLOW_HEADERS = (
+    'XMLHttpRequest',
+    'X_FILENAME',
+    'accept-encoding',
+    'authorization',
+    'content-type',
+    'dnt',
+    'origin',
+    'user-agent',
+    'x-csrftoken',
+    'x-requested-with',
+    'Pragma',
+    'token'
+)
+
 # 邮件服务器配置
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.163.com'  # 如果是 163 改成 smtp.163.com
 EMAIL_PORT = 465
 EMAIL_HOST_USER = 'chenchangxiao1221@163.com'  # 在这里填入您的QQ邮箱账号
-EMAIL_HOST_PASSWORD = 'PYAKIVKNJNQOPORQ'  # 请在这里填上您自己邮箱的授权码
+EMAIL_HOST_PASSWORD = 'IECENTOENYTVRVDH'  # 请在这里填上您自己邮箱的授权码
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+EMAIL_FROM = 'HomePage<chenchangxiao1221@163.com>'
 EMAIL_USE_SSL = True
 
-
 # 测试阶段将数据缓存到本地内存
-CACHES={
+CACHES = {
     'default': {
-        'BACKEND': 'django.core.cache.backends.locmem.LocMemCache', #缓存到本地内存中
+        'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',  # 缓存到本地内存中
         'TIMEOUT': 60,
     }
 }
@@ -240,10 +270,16 @@ import datetime
 
 JWT_AUTH = {
     # 自定义过期时间
-    'JWT_EXPIRATION_DELTA': datetime.timedelta(seconds=600),
+    'JWT_EXPIRATION_DELTA': datetime.timedelta(days=1),
 }
 
 REST_FRAMEWORK = {
-  'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema'
-}
+    # 全局异常捕获
+    'EXCEPTION_HANDLER': 'utils.exception.exception_handler',
+    'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema',
+    # 认证模块
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'utils.check_jwt_authenticate.MyJSONWebTokenAuthentication',
+    ),
 
+}
